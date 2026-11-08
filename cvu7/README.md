@@ -21,7 +21,7 @@ WorldCast takes no global representation of the world as input. MultiGen is driv
 - Input to display, waits included: 0.73 s median, 1.18 s p95. It is set by the 1-s block, as in any block-wise generator: a press waits for the next control read (0.50 s median), and the first frame follows in under 0.2 s (page: latency figure).
 - *Delayed updates.* Own controls are read locally, so a late message never slows a client's response to its own input; it only shows that peer one block late. In closed loop, every message a block late lowers Rendered by 0.07; random 0–2-block delays by 0.03; losing 10% / 30% of messages by 0.00 / 0.01; one client always late by 0.00; image quality is unchanged (page: delay table).
 
-**Revisions.** Sec. 3.1 defines real time and separates deployment from evaluation lockstep; Table 7, Related Work and App. G add the results above.
+**Revisions.** Sec. 3.1 will define real time and separate deployment from evaluation lockstep; Table 7, Related Work and App. G will add the results above.
 
 Anonymous page (figures, tables, videos): [index.html](index.html)
 

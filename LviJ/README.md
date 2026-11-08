@@ -24,7 +24,7 @@ We thank the reviewer. Unless run with the state model, consistency results give
 - *Measured (new, Table R3):* split across two machines, the exchange joint generation needs per denoising step takes 69–551 ms for Solaris (2–16 players), above the 62.5-ms frame budget, and 7–17 ms for Gamma-World; WorldCast's per-block exchange takes under 0.5 ms.
 - Kept on one GPU, the released joint models fall to 2.2 FPS per player (Gamma-World) or run out of memory (Solaris) at 16 players (Table 7); WorldCast stays above 16 FPS per player at 2.2–3.5 Mb/s.
 
-**Revisions:** abstract, introduction and conclusion state the evaluation protocols and lockstep; Table 7 adds FPS with waits and the measured transfer times.
+**Revisions:** abstract, introduction and conclusion will state the evaluation protocols and lockstep; Table 7 will add FPS with waits and the measured transfer times.
 
 Anonymous page (figures, tables, videos): [index.html](index.html)
 

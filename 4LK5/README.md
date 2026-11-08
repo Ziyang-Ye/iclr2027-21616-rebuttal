@@ -38,9 +38,9 @@ New runs lift all three:
 - A twenty-player world, twice any training match: Rendered within 0.013 of the ten-player world (paired), Unmatched unchanged (Table R4, stills).
 - All ten players as closed-loop clients: Rendered 0.814 vs. 0.821 with up to seven.
 
-**Minor — Fig. 2 is too packed.** Agreed; it is simplified in the revision.
+**Minor — Fig. 2 is too packed.** Agreed; the revision simplifies it.
 
-**Revisions:** abstract, introduction and conclusion state the evaluation protocols and one GPU per player as a deployment choice; Table 7 adds rates with waits; Related Work expands the MultiGen comparison.
+**Revisions:** abstract, introduction and conclusion will state the evaluation protocols and one GPU per player as a deployment choice; Table 7 will add rates with waits; Related Work will expand the MultiGen comparison.
 
 Anonymous page (figures, tables, videos): [index.html](index.html)
 
