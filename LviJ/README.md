@@ -27,6 +27,6 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
-- [How fast is it under each setting?](index.html#fps): every measured setting: GPU, clients, decoder, code path
+- [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
 - [Is joint generation's traffic a real cost across machines?](index.html#xfer): measured between two machines; computed for home broadband
 - [All numbers](index.html#nums): every number behind the reply, with intervals and sources

@@ -27,5 +27,5 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [How does the shared state update differ from MultiGen's?](index.html#r6): re-localization vs. a MultiGen-style update over a minute
 - [Do views agree on the same player?](index.html#xv): team, facing, pose: generated vs. recordings
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
-- [How fast is it under each setting?](index.html#fps): every measured setting: GPU, clients, decoder, code path
+- [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
 - [All numbers](index.html#nums): every number behind the reply, with intervals and sources
