@@ -11,7 +11,7 @@ WorldCast takes no global representation of the world as input. MultiGen is driv
 **W2 & Q2 — Cross-view agreement beyond placement (identity, appearance, actions); generated vs. extrapolated motion within a block.**
 - Position is the core state; Table 15 scores its cross-view agreement (rays a median 17–27 u apart, under one body width).
 - In CS2, identity is the team (T or CT), a channel of the field (App. F). Each visible player's team, facing, weapon and controls reach every client through the field, so no client infers who is who from pixels.
-- On Table 2's videos, attributes are drawn at near recording level: same team in two views 0.987; facing 0.825 vs. 0.868; a jumping player drawn airborne 0.85 vs. 0.89.
+- On Table 2's videos, attributes are drawn at near recording level: same team in two views 0.987; facing 0.825 vs. 0.868; with the state model over whole rounds, a jumping player drawn airborne 0.85 vs. 0.89.
 - Clips per state (jump, crouch, turn, move, weapon switch, firing) show the clients drawing the same action at the same moments (page: Same player).
 - *Within a block:* standard dead reckoning (Bernier, 2001). Every client, j's own included, extrapolates player j from j's last estimate and the controls j publishes, so all generators receive one identical position for j. Where j's generated motion differs (e.g., a stop at a wall), the state model reads it from j's frames (Table 6, Blocked) and all clients correct to it at the next block: the discrepancy lasts at most one block and never accumulates.
 

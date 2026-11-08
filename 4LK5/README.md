@@ -21,21 +21,21 @@ Closed loop, paired vs. on-time messages: Rendered changes by −0.03 with rando
 New runs lift all three:
 - All ten players as closed-loop clients, one hour, nothing reset: VBench imaging 71.1.
 - Five closed-loop clients, three hours, nothing reset: imaging 71.5 / 72.7 / 73.1 in hours 1–3 (stills).
-- Half a Dust2 match (13 min, 12 rounds), five clients, scene state never cleared: Unmatched 0.045, at its first-minute level; Rendered 0.836 (video).
+- Half a Dust2 match (13 min, 12 rounds), five clients, scene state never cleared: Rendered 0.836, Unmatched 0.045 over the session (per minute on the page).
 
 **W2d — Firing missing in other views; why not evaluated?**
 - Firing is modeled: the field carries each visible player's attack and reload keys and weapon (App. F). Page videos (attack held / attack zeroed / recording): the flash follows the attack channel.
 - Weapons and aim are drawn; the flash is less frequent, as a close, visible firing player appears in only 0.5% of training frames.
-- No detector reads firing or weapon reliably, even on recordings; readable attributes match near recording level: facing 0.825 vs. 0.868, airborne 0.85 vs. 0.89.
+- No detector reads firing or weapon reliably, even on recordings; readable attributes match near recording level: facing 0.825 vs. 0.868; with the state model, airborne 0.85 vs. 0.89.
 
 **Q2 — Four-step examples, evidence against the teacher, longest closed loop.**
 - All supplementary videos except Section 01 (Table 1's bidirectional comparison) are four-step.
-- Same windows and inputs, four-step minus teacher (Table R3): Rendered +0.033, Unmatched 0.000, VBench imaging +1.7, PSNR −0.14 dB, LPIPS +0.005; side-by-side videos on three maps.
+- Same windows and inputs, four-step minus teacher (Table R4): Rendered +0.033, Unmatched 0.000, VBench imaging +1.7, PSNR −0.14 dB, LPIPS +0.005; side-by-side videos on three maps.
 - Longest closed loop: Section 02c (five clients, 54 s) and the three-hour run (W2c).
 
 **Q3 — Consistency with more players than in training.**
 - Each training sample is one player's window, and the field's size does not grow with the player count.
-- A twenty-player world, twice any training match: Rendered within 0.013 of the ten-player world (paired), Unmatched unchanged (Table R4, stills).
+- A twenty-player world, twice any training match: Rendered within 0.013 of the ten-player world (paired), Unmatched unchanged (Table R5, stills).
 - All ten players as closed-loop clients: Rendered 0.814 vs. 0.821 with up to seven.
 
 **Minor — Fig. 2 is too packed.** Agreed; the revision simplifies it.
