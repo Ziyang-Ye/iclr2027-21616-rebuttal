@@ -35,4 +35,3 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [Is firing modeled?](index.html#r8): each example: attack held, attack zeroed, recording
 - [How does the four-step model compare with its teacher?](index.html#r5): same windows, same inputs
 - [Does it hold with more players?](index.html#r7): by concurrent clients and players in view
-- [All numbers](index.html#nums): every number behind the reply, with intervals and sources

@@ -28,4 +28,3 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [Do views agree on the same player?](index.html#xv): team, facing, pose: generated vs. recordings
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
 - [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
-- [All numbers](index.html#nums): every number behind the reply, with intervals and sources
