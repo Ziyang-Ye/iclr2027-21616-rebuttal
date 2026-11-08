@@ -30,6 +30,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [How does the shared state update differ from MultiGen's?](index.html#r6): re-localization vs. a MultiGen-style update over a minute
 - [Is joint generation's traffic a real cost across machines?](index.html#xfer): measured between two machines; computed for home broadband
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
+- [How fast is it under each setting?](index.html#fps): every measured setting: GPU, clients, decoder, code path
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
 - [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
 - [How does the four-step model compare with its teacher?](index.html#r5): same windows, same inputs
