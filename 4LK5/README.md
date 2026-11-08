@@ -32,7 +32,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
 - [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
-- [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
+- [Is firing modeled?](index.html#r8): each example: attack held, attack zeroed, recording
 - [How does the four-step model compare with its teacher?](index.html#r5): same windows, same inputs
 - [Does it hold with more players?](index.html#r7): by concurrent clients and players in view
 - [All numbers](index.html#nums): every number behind the reply, with intervals and sources

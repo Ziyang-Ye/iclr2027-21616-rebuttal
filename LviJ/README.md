@@ -24,7 +24,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 ## Figures, tables and videos
 
 - [Do views agree on the same player?](index.html#xv): team, facing, pose: generated vs. recordings
-- [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
+- [Is firing modeled?](index.html#r8): each example: attack held, attack zeroed, recording
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
 - [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
