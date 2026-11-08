@@ -9,15 +9,15 @@ We thank the reviewer. Unless called closed-loop, consistency results give clien
 
 **W1 / Q3. Without resets.** Table 4b's one-hour rollouts test image stability; Table 4a tests consistency.
 - *New:* half a Dust2 match, twelve consecutive rounds (13 min), five clients, scene state never cleared: players stay correctly drawn throughout, with no drift over the 13 minutes (Rendered 0.836, Unmatched 0.045; video on the page).
-- *New:* five closed-loop clients run three hours with nothing reset and no recorded frame or position after the first; image quality holds (VBench imaging quality 71.5 / 72.7 / 73.1 in hours 1–3; stills on the page).
+- *New:* five closed-loop clients run three hours with nothing reset; image quality holds (VBench imaging quality 71.5 / 72.7 / 73.1 in hours 1–3; stills on the page).
 
 **W2 / Q1. Deployment: rates, latency, controls within a block.** Deployment does not wait (App. B): each client reads the others' latest messages and runs at 18.7–23.4 FPS for 2–16 clients (Table 7; H200), above 16-fps playback; every measured setting is tabulated on the page. Lockstep is used only in evaluation, so that all clients read the same messages; even with its waits, rates for up to ten clients stay above 16 FPS. On our serving path, input to display is 0.73 s at the median, waits included. It is set by the block size, as in any block-wise generator: controls are read once per 1-s block, just before it is generated (App. B), so a press waits for the next block (0.50 s at the median); generating its first frame takes under 0.2 s.
 
-**W2. Network delay and stale states.** Without lockstep a message can arrive a block late. A client's own controls are read locally, so a delay never slows its response to its own input; it only shows a peer one block late. Even if every message is a block late, closed-loop Rendered drops by only 0.07, holding only others' controls by 0.035, and image quality is unchanged.
+**W2. Network delay and stale states.** Without lockstep a message can arrive a block late. A client's own controls are read locally, so a delay never slows its response to its own input; it only shows a peer one block late. In closed loop, Rendered drops by 0.07 with every message a block late, 0.03 with random 0–2-block delays per message, 0.00 / 0.01 with 10% / 30% of messages lost, and 0.00 with one client always a block late; PSNR moves by at most 0.05 dB.
 
 **W2. Resources and traffic.** WorldCast stays above 16 FPS on one GPU per player at 2.2–3.5 Mb/s. Split one per GPU, joint generation must exchange 149 Mb/s to 389 Gb/s per GPU (Table 7). We now measured that exchange between two machines on our cluster: per denoising step it takes Solaris 69–551 ms for 2–16 players, above the 62.5-ms frame budget, and Gamma-World 7–17 ms; WorldCast's per-block exchange takes under 1 ms. On one GPU, joint generation falls to 2.2 FPS per player (Gamma-World) or runs out of memory (Solaris; Table 7).
 
-**Revisions:** abstract, introduction and conclusion state the one-hour protocol and lockstep; Table 7 adds rates with waits, frames per GPU and computed-traffic labels.
+**Revisions:** abstract, introduction and conclusion state the one-hour protocol and lockstep; Table 7 adds rates with waits, frames per GPU and measured transfer times.
 
 Anonymous page (figures, tables, videos): [index.html](index.html)
 
