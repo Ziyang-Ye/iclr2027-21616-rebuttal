@@ -17,7 +17,7 @@ We thank the reviewer. Unless called closed-loop, consistency results give clien
 
 **Q2. Four-step model, longest example.** All supplementary videos except Section 01 (Table 1's comparison at the bidirectional stage the joint baselines reach) are four-step. On identical inputs the four-step model matches its bidirectional teacher: Rendered +0.033, Unmatched unchanged, imaging quality +1.7, frame metrics within 2%. Longest closed loop: Section 02c (five clients, 54 s), Fig. 7 (58.5 s), and now five closed-loop clients for three hours with nothing reset: image quality holds (VBench imaging 71.5 / 72.7 / 73.1 in hours 1–3; stills on the page).
 
-**Q3. More players than in training.** Client count is not a training variable: each sample is one player's window of a ten-player match, and a client sees other players only through its camera-aligned field, whose size does not grow with the number of players. Doubling the world to twenty players leaves consistency essentially unchanged: Rendered changes by only −0.013 (paired), Unmatched not at all, up to nine others in view. With all ten as closed-loop clients, Rendered is 0.814 vs. 0.821 with up to seven.
+**Q3. More players than in training.** Client count is not a training variable: each sample is one player's window of a ten-player match, and a client sees other players only through its camera-aligned field, whose size does not grow with the number of players. Doubling the world to twenty players leaves consistency unchanged: Rendered −0.013 (paired), Unmatched unchanged. With all ten as closed-loop clients, Rendered is 0.814 vs. 0.821 with up to seven, and an hour unreset keeps image quality (VBench 71.1).
 
 **Minor. Fig. 2** will be simplified.
 
