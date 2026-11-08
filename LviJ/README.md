@@ -26,7 +26,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 ## Figures, tables and videos
 
 - [Do views agree on the same player?](index.html#xv): team, facing, pose: generated vs. recordings
-- [Is firing modeled?](index.html#r8): attack and reload as given vs. zeroed; a rendered example
+- [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
 - [Is joint generation's traffic a real cost across machines?](index.html#xfer): measured between two machines; computed for home broadband

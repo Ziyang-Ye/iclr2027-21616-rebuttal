@@ -34,7 +34,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [Is joint generation's traffic a real cost across machines?](index.html#xfer): measured between two machines; computed for home broadband
 - [What latency does a player see?](index.html#r1): one key press, from press to screen
 - [Thirteen minutes without reset](index.html#long13): twelve rounds, five clients, nothing cleared
-- [Is firing modeled?](index.html#r8): attack and reload as given vs. zeroed; a rendered example
+- [Is firing modeled?](index.html#r8): four rendered examples, each beside its recording
 - [How does the four-step model compare with its teacher?](index.html#r5): same windows, same inputs
 - [Does it hold with more players?](index.html#r7): by concurrent clients and players in view
 - [All numbers](index.html#nums): every number behind the reply, with intervals and sources
