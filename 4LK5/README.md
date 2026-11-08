@@ -9,7 +9,7 @@ We thank the reviewer. Unless called closed-loop, consistency results give clien
 **W1. One GPU per player** is a deployment choice that networked play favors: a WorldCast client receives 2.2–3.5 Mb/s, while joint generation split one per GPU would need 149 Mb/s to 389 Gb/s (Table 7); measured across two machines on our cluster, Solaris's exchange alone exceeds the frame budget. The introduction will say so.
 
 **W2. Qualified claims.**
-- *Waits, latency.* Deployment does not wait (App. B): 18.7–23.4 FPS for 2–16 clients, all above 16-fps playback (Table 7; H200); every measured setting is tabulated on the page. Lockstep is evaluation-only; even with its waits, rates for up to ten clients stay above 16 FPS, and input to display is 0.73 s at the median, set by the 1-s block as in any block-wise generator.
+- *Waits, latency.* Deployment does not wait (App. B): 18.7–23.4 FPS for 2–16 clients, all above 16-fps playback (Table 7; H200); every measured setting is tabulated on the page. Lockstep is evaluation-only; with its waits, our optimized serving path runs 16 clients on two H200 machines at 31.1 FPS, with input to display 0.73 s at the median, set by the 1-s block as in any block-wise generator.
 - *Network delays.* In closed loop, Rendered drops by 0.07 with every message a block late, 0.03 with random 0–2-block delays, 0.00 / 0.01 with 10% / 30% of messages lost, 0.00 with one client always late; image quality is unchanged.
 - *One hour.* Table 4b tests image stability, Table 4a closed-loop agreement over whole rounds. New: half a Dust2 match (13 min, 12 consecutive rounds), five clients, scene state never cleared: players stay correctly drawn throughout, with no drift over the 13 minutes (Rendered 0.836, Unmatched 0.045).
 
