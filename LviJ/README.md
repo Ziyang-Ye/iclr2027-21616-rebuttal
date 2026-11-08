@@ -15,7 +15,7 @@ We thank the reviewer. Unless called closed-loop, consistency results give clien
 
 **W2. Network delay and stale states.** Without lockstep a message can arrive a block late. A client's own controls are read locally, so a delay never slows its response to its own input; it only shows a peer one block late. Even if every message is a block late, closed-loop Rendered drops by only 0.07, holding only others' controls by 0.035, and image quality is unchanged.
 
-**W2. Resources and traffic.** WorldCast stays above 16 FPS on one GPU per player at 2.2–3.5 Mb/s. Split one per GPU, joint generation must exchange 149 Mb/s to 389 Gb/s per GPU (Table 7). We now measured that exchange between two machines on our cluster: per denoising step it takes Solaris 69–551 ms for 2–16 players, above the 62.5-ms frame budget, and Gamma-World 7–15 ms; WorldCast's per-block exchange takes under 1 ms. On one GPU, joint generation falls to 2.2 FPS per player (Gamma-World) or runs out of memory (Solaris; Table 7).
+**W2. Resources and traffic.** WorldCast stays above 16 FPS on one GPU per player at 2.2–3.5 Mb/s. Split one per GPU, joint generation must exchange 149 Mb/s to 389 Gb/s per GPU (Table 7). We now measured that exchange between two machines on our cluster: per denoising step it takes Solaris 69–551 ms for 2–16 players, above the 62.5-ms frame budget, and Gamma-World 7–17 ms; WorldCast's per-block exchange takes under 1 ms. On one GPU, joint generation falls to 2.2 FPS per player (Gamma-World) or runs out of memory (Solaris; Table 7).
 
 **Revisions:** abstract, introduction and conclusion state the one-hour protocol and lockstep; Table 7 adds rates with waits, frames per GPU and computed-traffic labels.
 
