@@ -30,7 +30,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 
 ## Figures, tables and videos
 
-- [W1 & Q2 — Whole-round consistency with predicted states, after 30 s, and beyond position](index.html#w1q2): same scene vs. all pairs; per 10 s; same player; firing
+- [W1 & Q2 — Consistency with predicted states in the same scene, after 30 s, and beyond position](index.html#w1q2): same scene; per 10 s; same player; firing
 - [W1 & Q3 — Multi-client runs without position resets or memory clearing](index.html#w1q3): 13 minutes per minute; image quality over one hour; videos
 - [W2 & Q1 — Synchronized FPS, action-to-display latency, controls within a block](index.html#w2q1): speed and latency
 - [W2 — Network delay, jitter, loss, stale states](index.html#w2-delay): delayed and lost messages
