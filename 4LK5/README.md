@@ -32,7 +32,7 @@ With recorded positions, half a Dust2 match (13 min, 12 rounds, five clients, sc
 
 **Q3 — Consistency with more players than in training.**
 - The field's size does not grow with the player count.
-- A twenty-player world, twice any training match (recorded positions): the paired Rendered difference from the ten-player reference is −0.013, and Unmatched is unchanged (Table R15, stills).
+- A twenty-player world, twice any training match (recorded positions): the paired Rendered difference from the ten-player reference is −0.013, and Unmatched is unchanged (Table R15, page video).
 - With ten players as closed-loop clients, Rendered is 0.814; the up-to-seven-client reference is 0.821.
 
 **Minor — Fig. 2 is too packed.** Agreed; the revision simplifies it.
