@@ -14,7 +14,7 @@ Thank you for noting that most rendering comparisons use recorded positions and 
 - *New:* five closed-loop clients, three hours, nothing reset: VBench imaging quality 71.5 / 72.7 / 73.1 in hours 1–3 (Table R8; page videos).
 
 **W2 & Q1 — Synchronized FPS, action-to-display latency, controls within a block.**
-- *FPS with lockstep waits (new, Table R9):* optimized serving path, H200, 2 / 4 / 8 / 10 / 16 clients: 28.2 / 27.5 / 24.5 / 24.1 / 24.2 per client with Table 7's full decoder, 39.0 / 37.5 / 32.8 / 32.2 / 30.7 with a tiny display decoder (latents unchanged). Table 7's 18.7–23.4 excludes waits; deployment does not wait (App. B).
+- *FPS with lockstep waits (new, Table R9):* optimized serving path, H200, 2 / 4 / 8 / 10 / 16 clients: 28.2 / 27.5 / 24.5 / 24.1 / 24.2 per client with Table 7's full decoder, 39.0 / 37.6 / 32.8 / 32.2 / 30.7 with a tiny display decoder (latents unchanged). Table 7's 18.7–23.4 excludes waits; deployment does not wait (App. B).
 - *Latency (new, page figure):* key press to screen 0.73 s median, 1.18 s p95, at 8 and 16 clients.
 - *Controls within a block:* read once per 1-s block, just before it is generated (App. B); a press waits for the next read (median 0.50 s), and the block's first frame follows in under 0.2 s. A client's own controls are local, so network delay never slows its response to its own input.
 
