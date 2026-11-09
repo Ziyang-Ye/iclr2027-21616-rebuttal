@@ -2,7 +2,7 @@
 
 Thank you for noting that most rendering comparisons use recorded positions and that predicted-state rendering was previously evaluated only in 10-s windows. Unless marked as using the state model, consistency results use clients' recorded positions, as in the paper's main tables. Table 4a also evaluates five closed-loop clients over whole rounds without position resets; Table R4 tracks Rendered and Unmatched every 10 s through 100 s. Rates and latency below are measured on the full system.
 
-**W1 & Q2 — Whole-round consistency with predicted states, after 30 s, and beyond position.**
+**W1 & Q2 — Consistency with predicted states in the same scene, after 30 s, and beyond position.**
 - *Why RotErr 55.6° and depth 0.120 are low (new, Table R1, Table R2).* These measures score pairs co-visible in the recording. Closed-loop clients leave the recorded trajectories (App. G), so after 30 s 82.7% of those pairs look at different places. On pairs that stay in the same scene (views overlap ≥ 0.5 both ways, Table R1), RotErr is 30.1° after 30 s (26.6° over the whole round) and depth 0.232 (0.365), against 59.0° and 0.114 for unrelated views. We therefore read the paired gain: scene state raises depth agreement from 0.092 to 0.120 (Table 19), and Mat. Pix. by 9.6–22.1K and Inliers by 7.3–10.1 in every overlap group.
 - *Position (Table R3).* On generated video, re-localizing each player every block keeps the state model's error bounded: 2.6 body widths at 50–60 s, against 11.4 for a MultiGen-style update.
 - *By elapsed time (new, Table R4).* Five closed-loop clients, whole rounds, nothing reset: Rendered is 0.75 in the first 10 s and 0.64–0.80 in every later 10 s up to 100 s; Unmatched 0.05, then 0.13–0.27.
