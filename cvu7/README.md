@@ -18,7 +18,7 @@ WorldCast takes no global representation of the world as input. MultiGen is driv
 
 **W2 & Q3 — End-to-end latency with lockstep waits; effect of delayed updates on quality and responsiveness.**
 - Deployment does not wait (App. B): each client reads the others' latest messages, at 18.7–23.4 FPS for 2–16 clients (Table 7, H200), above 16-fps playback. Lockstep is used only in evaluation.
-- With lockstep waits, our optimized serving path (tiny decoder) runs 31.0–39.0 FPS per client for 2–16 clients on H200, each bit-identical to the offline client (page: speed table).
+- With lockstep waits and Table 7's full decoder, our optimized serving path runs 24.1–28.2 FPS for 2–16 clients on H200 (30.7–39.0 with a tiny display decoder), each bit-identical to the offline client (page).
 - Input to display, waits included: 0.73 s median, 1.18 s p95. It is set by the 1-s block, as in any block-wise generator: a press waits for the next control read (0.50 s median), and the first frame follows in under 0.2 s (page: latency figure).
 - *Delayed updates.* Own controls are read locally, so a late message never slows a client's response to its own input; it only shows that peer one block late. In closed loop, every message a block late lowers Rendered by 0.07; random 0–2-block delays by 0.03; losing 10% / 30% of messages by 0.00 / 0.01; one client always late by 0.00; image quality is unchanged (page: delay table).
 
