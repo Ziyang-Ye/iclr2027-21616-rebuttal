@@ -1,7 +1,7 @@
 # Response to Reviewer 4LK5
 
 **W1 & Q1 — WorldCast's state representation and update vs. an adapted MultiGen.**
-The main advantage: the shared state is read back from the video each client generated, and clients share generated appearance, with no given map. MultiGen follows a given, editable map; WorldCast targets consistent views and player states while players roam scenes learned in training. Inputs and goals differ, so we compare each choice within our stack:
+The main advantage: the shared state is observed from the video each client generated, not simulated, so a player's own view and what others draw stay coupled; clients also share generated appearance, with no given map. MultiGen follows a given, editable map; WorldCast targets consistent views and player states in scenes learned in training. Inputs and goals differ; we compare each choice within our stack:
 - *Update.* MultiGen integrates learned pose increments, so "small pose errors may accumulate". Each WorldCast client re-localizes its player from its own video every block (Eq. 4). A MultiGen-style update trained like our state model drifts on the same generated videos: 11.4 vs. 2.6 body widths at 50–60 s.
 - *Player representation.* MultiGen does not specify how visible players enter its generator. Our camera-aligned field renders them at 0.763, vs. 0.549 for late injection and 0.093 for per-player tokens (Table 5).
 - *Shared appearance.* MultiGen shares a map and poses; scene properties are "not explicitly preserved". Turning off WorldCast's shared generated blocks lowers all four closed-loop agreement measures (Table 4a) and costs 1.23 dB PSNR after 30 s (Table 18; page videos).
@@ -10,11 +10,11 @@ The main advantage: the shared state is read back from the video each client gen
 Agreed: it is a deployment choice; our 13-minute run places two clients on one GPU. A WorldCast client receives 2.2–3.5 Mb/s; joint generation split one player per GPU needs 149 Mb/s–389 Gb/s (Table 7). Between two machines, Solaris's exchange alone exceeds the 62.5-ms frame; WorldCast's takes under 1 ms per 1-s block (Table R3).
 
 **W2a — FPS excludes waits; latency not evaluated.**
-- Deployment reads the latest messages without waiting (App. B); lockstep is evaluation-only. With waits counted and Table 7's full decoder, our optimized serving path runs 24.1–28.2 FPS for 2–16 clients on H200 (Table 7, waits excluded: 18.7–23.4); with a tiny decoder, 30.7–39.0 (Table R5).
-- Key press to screen: 0.73 s median (p95 1.18 s) with the tiny decoder, 0.94 / 1.40 s with Table 7's, set by the 1-s block; A's generated motion reaches B's screen in 1.74 s (page).
+- Deployment reads the latest messages without waiting (App. B); lockstep is evaluation-only. With waits counted and Table 7's full decoder, engineering optimizations bring the serving path to 24.1–28.2 FPS for 2–16 clients on H200 (Table 7, no waits: 18.7–23.4); with a tiny decoder, 30.7–39.0 (Table R5).
+- Key press to screen: 0.73 s median (p95 1.18 s) with the tiny decoder, 0.94 / 1.40 s with Table 7's; A's generated motion reaches B's screen in 1.74 s (page).
 
 **W2b — Network delays not evaluated.**
-Closed loop, paired vs. on-time messages: Rendered changes by −0.03 with random 0–2-block delays, 0.00 / −0.01 with 10% / 30% of messages lost, 0.00 with one client always a block late, −0.07 with every message a block late; image quality is unchanged.
+Closed loop, vs. on-time messages: Rendered changes by −0.03 with random 0–2-block delays, 0.00 / −0.01 with 10% / 30% of messages lost, 0.00 with one client always a block late, −0.07 with every message a block late; image quality is unchanged.
 
 **W2c — Hour-long runs.**
 New closed-loop runs give each client only its recorded actions; positions come from the state model, nothing is reset: ten clients (VBench imaging 71.1) and five clients (71.5) for one hour (page videos).
