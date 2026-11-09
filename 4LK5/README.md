@@ -1,13 +1,13 @@
 # Response to Reviewer 4LK5
 
 **W1 & Q1 — WorldCast's state representation and update vs. an adapted MultiGen.**
-The main advantage: the shared state is observed from the video each client generated, not simulated, so a player's own view and what others draw stay coupled; clients also share generated appearance, with no given map. MultiGen follows a given, editable map; WorldCast targets consistent views and player states in scenes learned in training. Inputs and goals differ; we compare each choice within our stack:
-- *Update.* MultiGen integrates learned pose increments, so "small pose errors may accumulate". Each WorldCast client re-localizes its player from its own video every block (Eq. 4). A MultiGen-style update trained like our state model drifts on the same generated videos: 11.4 vs. 2.6 body widths at 50–60 s.
-- *Player representation.* MultiGen does not specify how visible players enter its generator. Our camera-aligned field renders them at 0.763, vs. 0.549 for late injection and 0.093 for per-player tokens (Table 5).
+The main advantage: the shared state is observed from the video each client generated, not simulated, so a player's own view and what others draw stay coupled; clients also share generated appearance, with no given map. MultiGen follows a given, editable map. With backbone and domain fixed, we compare each choice:
+- *Update.* MultiGen integrates learned pose increments, so "small pose errors may accumulate". Each WorldCast client re-localizes its player from its own video every block (Eq. 4). Same-recipe MultiGen-style updates with a map ray-cast drift on the same generated videos: 7.4–11.4 vs. 2.6 body widths at 50–60 s; in closed loop the state's height stays within 0.26 body widths of the player's own frames, vs. 0.65–0.73 (Table R1b).
+- *Player representation.* MultiGen ray-casts the map; how players enter is unspecified. Same backbone and data: camera-aligned field 0.763, late injection 0.549, per-player tokens 0.093 Rendered (Table 5).
 - *Shared appearance.* MultiGen shares a map and poses; scene properties are "not explicitly preserved". Turning off WorldCast's shared generated blocks lowers all four closed-loop agreement measures (Table 4a) and costs 1.23 dB PSNR after 30 s (Table 18; page videos).
 
 **W1 — One GPU per player is a choice, not a requirement.**
-Agreed: it is a deployment choice; our 13-minute run places two clients on one GPU. A WorldCast client receives 2.2–3.5 Mb/s; joint generation split one player per GPU needs 149 Mb/s–389 Gb/s (Table 7). Between two machines, Solaris's exchange alone exceeds the 62.5-ms frame; WorldCast's takes under 1 ms per 1-s block (Table R3).
+Agreed: it is a deployment choice; our 15-minute run places two clients on one GPU. A WorldCast client receives 2.2–3.5 Mb/s; joint generation split one player per GPU needs 149 Mb/s–389 Gb/s (Table 7). Between two machines, Solaris's exchange alone exceeds the 62.5-ms frame; WorldCast's takes under 1 ms per 1-s block (Table R3).
 
 **W2a — FPS excludes waits; latency not evaluated.**
 - Deployment reads the latest messages without waiting (App. B); lockstep is evaluation-only. With waits counted and Table 7's full decoder, engineering optimizations bring the serving path to 24.1–28.2 FPS for 2–16 clients on H200 (Table 7, no waits: 18.7–23.4); with a tiny decoder, 30.7–39.0 (Table R5).
@@ -23,7 +23,7 @@ With recorded positions, half a Dust2 match (13 min, 12 rounds, five clients, sc
 **W2d — Firing missing in other views; why not evaluated?**
 - Hits and deaths are out of scope by design. Firing is modeled: the field carries each visible player's attack and reload keys and weapon (App. F). Page videos (attack held / attack zeroed / recording): the flash follows the attack channel.
 - Missing flashes are not a design choice: a close, visible firing player appears in only 0.5% of training frames.
-- No detector reads firing or weapon reliably, even on recordings; readable attributes match near recording level: facing 0.825 vs. 0.868; with the state model, airborne 0.85 vs. 0.89.
+- Firing and weapon are shown, not scored; readable attributes match near recording level: facing 0.825 vs. 0.868; with the state model, airborne 0.85 vs. 0.89.
 
 **Q2 — Four-step examples, evidence against the teacher, longest closed loop.**
 - All supplementary videos except Section 01 (Table 1's bidirectional comparison) are four-step.
