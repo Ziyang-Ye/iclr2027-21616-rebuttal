@@ -27,12 +27,12 @@ With recorded positions, half a Dust2 match (13 min, 12 rounds, five clients, sc
 
 **Q2 — Four-step examples, evidence against the teacher, longest closed loop.**
 - All supplementary videos except Section 01 (Table 1's bidirectional comparison) are four-step.
-- Same windows and inputs, four-step minus teacher (Table R13): Rendered +0.033, Unmatched 0.000, VBench imaging +1.7, PSNR −0.14 dB, LPIPS +0.005; side-by-side videos on four maps.
+- Same windows and inputs, four-step minus teacher (Table R12): Rendered +0.033, Unmatched 0.000, VBench imaging +1.7, PSNR −0.14 dB, LPIPS +0.005; side-by-side videos on four maps.
 - Longest closed loop: Section 02c (five clients, 54 s) and the one-hour runs (W2c).
 
 **Q3 — Consistency with more players than in training.**
 - The field's size does not grow with the player count.
-- A twenty-player world, twice any training match (recorded positions): the paired Rendered difference from the ten-player reference is −0.013, and Unmatched is unchanged (Table R15, page video).
+- A twenty-player world, twice any training match (recorded positions): the paired Rendered difference from the ten-player reference is −0.013, and Unmatched is unchanged (Table R14, page video).
 - With ten players as closed-loop clients, Rendered is 0.814; the up-to-seven-client reference is 0.821.
 
 **Minor — Fig. 2 is too packed.** Agreed; the revision simplifies it.
