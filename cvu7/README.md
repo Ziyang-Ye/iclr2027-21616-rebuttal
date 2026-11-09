@@ -1,18 +1,19 @@
 # Response to Reviewer cvu7
 
-We thank the reviewer. Unless run with the state model, consistency results give clients the recorded positions, as in the paper's main tables. This controlled design, which the reviewer credits, separates rendering from state estimation and locates each source of error; with dense real-match inputs (flicks, strafing, jumps), action-only rollouts depart from their recordings (App. G). Rates and latency are of the full system. New figures, tables and videos are on the anonymous page, one section per point.
+Unless marked as using the state model, consistency results use the recorded player positions, as in the paper's main tables. This controlled setup separates rendering from state estimation; under dense real-match controls (flicks, strafing, jumps), action-only rollouts depart from their recordings (App. G). Rates and latency below are measured on the full system.
 
 **W1 & Q1 — What does WorldCast add over shared-state methods (MultiGen, MASS) in state update, visual conditioning and execution?**
 WorldCast takes no global representation of the world as input. MultiGen is driven by a given map, ray-cast into each view, and advances poses by learned increments; MASS simulates a typed state of every entity on a server and renders it without RGB history. A WorldCast client receives only a camera-aligned field of the other players; geometry, appearance and physics come from the generator's learned priors.
-- *State update.* Each client re-localizes its player from its own generated blocks (Eq. 4) every block, so error stays bounded. A MultiGen-style incremental update built in our stack drifts: at 50–60 s it errs four times more (11.4 vs. 2.6 body widths); at 60 s, 5% vs. 39% of clients stay within two body widths (page: error curves, tracks).
+- *State update.* Each client re-localizes its player from its own generated blocks (Eq. 4) every block, so error stays bounded. A MultiGen-style incremental update built in our stack drifts on the same generated videos: at 50–60 s it errs four times more (11.4 vs. 2.6 body widths); at 60 s, 5% vs. 39% of clients stay within two body widths (page: error curves, tracks).
 - *Visual conditioning.* No map is read in deployment. Clients share their generated blocks (scene state), which keep what no map holds (smoke, open doors): switching them off costs 1.23 dB PSNR after 30 s (Table 18) and lowers agreement between closed-loop clients (Tables 4a, 19; page videos).
+- *Player representation.* On the same backbone, data and budget, the camera-aligned field renders other players at 0.763, vs. 0.549 for late injection and 0.093 for per-player tokens (Table 5).
 - *Execution.* No server and no engine: one generator per player publishes its own record and reads the others' at 2.2–3.5 Mb/s (Table 7), so a new player adds one generator and one message stream. Tables 1 and 10 compare this with joint generation on the same backbone, data and budget.
 
 **W2 & Q2 — Cross-view agreement beyond placement (identity, appearance, actions); generated vs. extrapolated motion within a block.**
 - Position is the core state; Table 15 scores its cross-view agreement (rays a median 17–27 u apart, under one body width).
 - In CS2, identity is the team (T or CT), a channel of the field (App. F). Each visible player's team, facing, weapon and controls reach every client through the field, so no client infers who is who from pixels.
 - On Table 2's videos, attributes are drawn at near recording level: same team in two views 0.987; facing 0.825 vs. 0.868; with the state model over whole rounds, a jumping player drawn airborne 0.85 vs. 0.89.
-- Clips per state (jump, crouch, turn, move, weapon switch, firing) show the clients drawing the same action at the same moments (page: Same player).
+- Clips per state (jump, crouch, turn, move, weapon switch, firing) show the clients drawing the same action at the same moments (page: W2 & Q2).
 - *Within a block:* standard dead reckoning (Bernier, 2001). Every client, j's own included, extrapolates player j from j's last estimate and the controls j publishes, so all generators receive one identical position for j. Where j's generated motion differs (e.g., a stop at a wall), the state model reads it from j's frames (Table 6, Blocked) and all clients correct to it at the next block: the discrepancy lasts at most one block and never accumulates.
 
 **W2 & Q3 — End-to-end latency with lockstep waits; effect of delayed updates on quality and responsiveness.**
@@ -27,7 +28,6 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 
 ## Figures, tables and videos
 
-- [How does the shared state update differ from MultiGen's?](index.html#r6): re-localization vs. a MultiGen-style update over a minute
-- [Do views agree on the same player?](index.html#xv): team, facing, pose: generated vs. recordings
-- [What latency does a player see?](index.html#r1): one key press, from press to screen
-- [How fast is it under each setting?](index.html#fps): Table 7 vs. the optimized serving path
+- [W1 & Q1 — What does WorldCast add over shared-state methods (MultiGen, MASS) in state update, visual conditioning and execution?](index.html#w1q1): position error over a minute, tracks, scene state
+- [W2 & Q2 — Cross-view agreement beyond placement (identity, appearance, actions); generated vs. extrapolated motion within a block](index.html#w2q2): attributes; clips per action, including firing
+- [W2 & Q3 — End-to-end latency with lockstep waits; effect of delayed updates on quality and responsiveness](index.html#w2q3): speed, latency, delayed messages
