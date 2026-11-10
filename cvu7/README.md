@@ -1,6 +1,6 @@
 # Response to Reviewer cvu7
 
-Unless marked as using the state model, consistency results use recorded positions, as in the paper's main tables, which separates rendering from state estimation. Rates and latency are measured on the full system.
+As in the paper's main tables, consistency results use recorded positions unless marked as using the state model. Rates and latency are measured on the full system.
 
 **W1 & Q1 — What does WorldCast add over shared-state methods (MultiGen, MASS) in state update, visual conditioning and execution?**
 The main advance: the shared state is observed from the generated video, not simulated, so what a player sees and what others draw of that player stay coupled. Clients also share their generated blocks, and no global representation of the world is an input. MultiGen is driven by a given map and advances poses by learned increments; MASS simulates a typed state of every entity on a server and renders it without RGB history. A WorldCast client receives only a camera-aligned field of the other players.
