@@ -18,9 +18,9 @@ The main advance: the shared state is observed from the generated video, not sim
 
 **W2 & Q3 — End-to-end latency with lockstep waits; effect of delayed updates on quality and responsiveness.**
 - Deployment does not wait (App. B): each client reads the others' latest messages, hence Table 7 excludes waits. Lockstep is used only in evaluation.
-- With lockstep waits and Table 7's full decoder, engineering optimizations bring the serving path to 24.1–28.2 FPS for 2–16 clients on H200 (30.7–38.9 with a tiny display decoder), each bit-identical to the offline client (page).
-- A 16-frame block takes 570–660 ms with waits. Input to display, waits included: 0.73 s median, 1.18 s p95 with the tiny decoder, 0.94 / 1.40 s with Table 7's (page figure): a press waits for the next control read (0.50 s median), and the first frame follows in under 0.2 s. A's generated motion reaches B's screen in 1.74 s (p95 2.20 s, 8 clients).
-- *Delayed updates.* Own controls are read locally, so a late message never slows a client's response to its own input; it only shows that peer one block late. In closed loop, every message a block late lowers Rendered by 0.07; random 0–2-block delays by 0.03; losing 10% / 30% of messages by 0.00 / 0.01; one client always late by 0.00; image quality is unchanged (page).
+- With lockstep waits and Table 7's full decoder, engineering optimizations bring the serving path to 24.1–28.2 FPS for 2–16 clients on H200 (30.7–38.9 with a tiny display decoder), each bit-identical to the offline client (Table R5).
+- A 16-frame block takes 570–660 ms with waits. Input to display, waits included: 0.73 s median, 1.18 s p95 with the tiny decoder, 0.94 / 1.40 s with Table 7's (Table R6): a press waits for the next control read (0.50 s median), and the first frame follows in under 0.2 s. A's generated motion reaches B's screen in 1.74 s (p95 2.20 s, 8 clients).
+- *Delayed updates.* Own controls are read locally, so a late message never slows a client's response to its own input; it only shows that peer one block late. In closed loop, every message a block late lowers Rendered by 0.07; random 0–2-block delays by 0.03; losing 10% / 30% of messages by 0.00 / 0.01; one client always late by 0.00; image quality is unchanged (Table R7).
 
 **Revisions.** Sec. 3.1 will separate deployment from evaluation lockstep; Table 7, Related Work and App. G will add these results.
 
