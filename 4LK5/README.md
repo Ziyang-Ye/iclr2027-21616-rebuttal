@@ -47,7 +47,7 @@ Anonymous page (figures, tables, videos): [index.html](index.html)
 - [W1 — One GPU per player is a choice, not a requirement](index.html#w1): exchange time between two machines
 - [W2a — FPS excludes waits; latency not evaluated](index.html#w2a): speed and latency
 - [W2b — Network delays not evaluated](index.html#w2b): delayed and lost messages
-- [W2c — Hour-long runs](index.html#w2c): 13 minutes per minute; image quality over one hour; videos
+- [W2c — Hour-long runs](index.html#w2c): 13 minutes, minute by minute; image quality over one hour; videos
 - [W2d — Firing missing in other views; why not evaluated?](index.html#w2d): attack held, attack zeroed, recording
 - [Q2 — Four-step examples, evidence against the teacher, longest closed loop](index.html#q2): four-step model vs. its teacher
 - [Q3 — Consistency with more players than in training](index.html#q3): more clients; a world of twenty
