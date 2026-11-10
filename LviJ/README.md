@@ -10,9 +10,8 @@ Most comparisons use recorded positions by design: as Reviewer cvu7 notes, evalu
 
 **W1 & Q3 — Multi-client runs without position resets or memory clearing.**
 - Yes: Table R4 (placement), Table R1 (cross-view).
-- *15 min (Table R7):* five clients, one track, nothing reset, given-state rule (lower than the paper's: 0.690 vs. 0.836 on the 13-min run): Rendered 0.400 (state model) vs. 0.504 (recorded positions), no downward trend; Unmatched 0.231 vs. 0.091.
-- *One hour, five clients, first 30 min (Table R7):* Rendered 0.572, 0.436, 0.357 per 10 min. Beyond 30 min, and with ten clients, agreement falls; the revision will say so.
-- *One hour:* VBench imaging 71.5 (five clients), 71.1 (ten) (Table R8).
+- *15 min (Table R7):* five clients, one track, no resets. With no recording of these positions, Rendered counts clearly visible players in the given state (13-min run: 0.896; paper's 0.836): 0.643 (state model) vs. 0.800 (recorded), flat over time; Unmatched 0.231 vs. 0.091.
+- *One hour, five clients (Table R7):* Rendered 0.800, 0.667, 0.764 per 10 min in the first 30 min. Later, and with ten clients, agreement falls; the revision will say so. VBench imaging 71.5; ten clients 71.1 (Table R8).
 - Recorded positions, 13 min, scene state kept: Rendered 0.836, Unmatched 0.045 (Table R7b).
 
 **W2 & Q1 — Synchronized FPS, action-to-display latency, controls within a block.**
