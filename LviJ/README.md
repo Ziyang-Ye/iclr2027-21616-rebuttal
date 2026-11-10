@@ -22,8 +22,8 @@ Most comparisons use recorded positions by design: as Reviewer cvu7 notes, evalu
 **W2 — Network delay, jitter, loss, stale states (new, Table R12, closed loop).** Change in Rendered vs. on-time messages: every message a block late −0.07; random 0–2-block delays −0.03; 10% / 30% lost 0.00 / −0.01; one client always a block late 0.00. PSNR changes by at most 0.075 dB, LPIPS by at most 0.003.
 
 **W2 — Resource-normalized advantage; analytical baseline traffic.**
-- *Measured (new, Table R13):* split across two machines, the exchange joint generation needs per denoising step takes 69–551 ms for Solaris (2–16 players), above the 62.5-ms frame budget, and 7–17 ms for Gamma-World; WorldCast's per-block exchange takes under 0.5 ms.
-- Kept on one GPU, the released joint models fall to 2.2 FPS per player (Gamma-World) or run out of memory (Solaris) at 16 players (Table 7); WorldCast stays above 16 FPS per player at 2.2–3.5 Mb/s.
+- *Measured (Table R13):* across two machines, joint generation's exchange per denoising step takes 69–551 ms for Solaris (2–16 players), above the 62.5-ms frame, and 7–17 ms for Gamma-World; WorldCast's per-block exchange under 0.5 ms.
+- On one GPU, the released joint models fall to 2.2 FPS per player (Gamma-World) or run out of memory (Solaris) at 16 players (Table 7); WorldCast stays above 16 FPS per player at a measured mean of 0.55–3.17 Mb/s (Table R13b).
 
 **Revisions:** abstract, introduction and conclusion will state the protocols and lockstep; Table 7 adds FPS with waits and measured transfers.
 

@@ -1,13 +1,13 @@
 # Response to Reviewer 4LK5
 
 **W1 & Q1 — WorldCast's state representation and update vs. an adapted MultiGen.**
-We agree MultiGen shares this outline and will say so. The difference is the state itself: MultiGen's is a given, editable map with simulated poses; WorldCast's is observed from each client's generated video, so a player's own view and what others draw stay coupled, and clients share generated appearance, with no given map. With backbone and domain fixed, choice by choice:
+We agree MultiGen shares this outline and will say so. The difference is the state itself: MultiGen's is a given, editable map with integrated pose increments; WorldCast's is re-observed every block from each client's generated video, so a player's own view and what others draw stay coupled, and clients share generated appearance, with no given map. With backbone and domain fixed, choice by choice:
 - *Update.* MultiGen integrates learned pose increments, so "small pose errors may accumulate". Each WorldCast client re-localizes its player from its own video every block (Eq. 4). MultiGen-style updates with a map ray-cast drift on videos generated with recorded positions: 7.4–11.4 vs. 2.6 body widths at 50–60 s; in closed loop the state's height is a median 0.26 body widths from the player's frames, vs. 0.65–0.73 (Table R1b).
-- *Player representation.* MultiGen ray-casts the map; how players enter is unspecified. Same backbone and data: camera-aligned field 0.763, late injection 0.549, per-player tokens 0.093 Rendered (Table 5).
+- *Player representation.* MultiGen ray-casts the map; how players enter is unspecified. Same backbone and data: camera-aligned field 0.763 Rendered, late injection 0.549 (Table 5).
 - *Shared appearance.* MultiGen shares a map and poses; scene properties are "not explicitly preserved". Turning off WorldCast's shared generated blocks lowers all four closed-loop agreement measures (Table 4a) and costs 1.23 dB PSNR after 30 s (Table 18; page videos).
 
 **W1 — One GPU per player is a choice, not a requirement.**
-Agreed: it is a deployment choice; our 15-minute run places two clients on one GPU. A WorldCast client receives 2.2–3.5 Mb/s; joint generation split one player per GPU needs 149 Mb/s–389 Gb/s (Table 7). Between two machines, the exchange for one second of video takes 1.37–11.0 s for Solaris and 0.40–0.49 ms for WorldCast (Table R3).
+Agreed: a deployment choice; our 15-minute run places two clients per GPU. A WorldCast client receives a measured 0.55–3.17 Mb/s on average (Table R3b); joint generation at one player per GPU needs 149 Mb/s–389 Gb/s (Table 7). Between two machines, the exchange for one second of video takes 1.37–11.0 s for Solaris and 0.40–0.49 ms for WorldCast (Table R3).
 
 **W2a — FPS excludes waits; latency not evaluated.**
 - Deployment reads the latest messages without waiting (App. B); lockstep is evaluation-only. With waits counted and Table 7's full decoder, engineering optimizations bring the serving path to 24.1–28.2 FPS for 2–16 clients on H200 (Table 7, no waits: 18.7–23.4); with a tiny decoder, 30.7–38.9 (Table R5).
@@ -18,7 +18,7 @@ Closed loop, vs. on-time messages: Rendered changes by −0.03 with random 0–2
 
 **W2c — Hour-long runs.**
 New closed-loop runs: recorded actions only, state-model positions, nothing reset. One hour, five clients (Table R9c): Rendered of clearly visible players is 0.800, 0.667, 0.764 per 10 min in the first 30 min; later, and with ten clients, agreement falls. VBench imaging: 71.5 (ten: 71.1). 15 min on one track (Table R9): 0.643 vs. 0.800 with recorded positions.
-With recorded positions, a 13-min Dust2 half (12 rounds, five clients, scene state kept) scores Rendered 0.836, Unmatched 0.045.
+With recorded positions, a 13-min Dust2 half (12 rounds, scene state kept) scores Rendered 0.836, Unmatched 0.045.
 
 **W2d — Firing missing in other views; why not evaluated?**
 - Hits and deaths are out of scope by design. Firing is modeled: the field carries each visible player's attack and reload keys and weapon (App. F). Page videos (attack held / attack zeroed / recording): the flash follows the attack channel.
@@ -31,11 +31,11 @@ With recorded positions, a 13-min Dust2 half (12 rounds, five clients, scene sta
 - Longest closed loop: the one-hour runs (W2c).
 
 **Q3 — Consistency with more players than in training.**
-- The field's size does not grow with the player count.
+- The field does not grow with the player count.
 - A twenty-player world, twice any training match (recorded positions): the paired Rendered difference from the ten-player reference is −0.013, and Unmatched is unchanged (Table R14, page video).
 - With ten players as closed-loop clients, Rendered is 0.814; the up-to-seven-client reference is 0.821.
 
-**Minor — Fig. 2.** Agreed; the revision simplifies it.
+**Minor — Fig. 2.** Agreed; the revision simplifies.
 
 **Revisions:** abstract, introduction and conclusion will state the evaluation protocols and one GPU per player as a deployment choice; Table 7 will add rates with waits; Related Work will expand the MultiGen comparison.
 
